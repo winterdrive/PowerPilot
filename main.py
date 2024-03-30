@@ -51,8 +51,6 @@ async def commit_message_generator(secret_key: str, model_url: str, api_key: str
     return {"message": chat_agent.commit_message_generator(message_content.decode())}
 
 
-
-# CMD uvicorn main:app --host 0.0.0.0 --port 8080 --reload
 if __name__ == "__main__":
     #     http://127.0.0.1:8080/docs
     port = int(environ.get("PORT", default=8000))

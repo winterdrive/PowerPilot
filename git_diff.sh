@@ -1,0 +1,1 @@
+git diff head > git.log

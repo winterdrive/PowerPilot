@@ -3,4 +3,5 @@
 .idea
 git.log
 .env
-test_main.http
+poc/
+

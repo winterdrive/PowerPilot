@@ -5,7 +5,15 @@ Accept: application/json
 
 ###
 
-GET http://127.0.0.1:8000/hello/User
+POST http://127.0.0.1:8000/commit-message-generator/text
+Content-Type: application/json
 Accept: application/json
 
-###
+{
+  "secret_key": "XXXX",
+  "model_url": "XXXX",
+  "api_key": "XXXX",
+  "message": "this is a test messagexzcxzcdacsdcsfvczvcv"
+}
+
+

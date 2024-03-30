@@ -31,8 +31,8 @@ async def commit_message_generator(inspect: Message):
         raise HTTPException(status_code=403, detail="Invalid model URL.")
     if inspect.api_key != environ.get("api_key"):
         raise HTTPException(status_code=403, detail="Invalid API key.")
-    if inspect.message is None or len(inspect.message) < 10 or len(inspect.message) > 1500:
-        raise HTTPException(status_code=403, detail="Invalid message length. Must be between 10 and 1500 characters.")
+    if inspect.message is None or len(inspect.message) < 10:
+        raise HTTPException(status_code=403, detail="Invalid message length. Must be over 10characters.")
     return {"message": chat_agent.commit_message_generator(inspect.message)}
 
 
@@ -47,5 +47,15 @@ async def commit_message_generator(secret_key: str, model_url: str, api_key: str
         raise HTTPException(status_code=403, detail="Invalid API key.")
     message_content = await message_file.read()
     if message_content is None or len(message_content) < 10:
-        raise HTTPException(status_code=403, detail="Invalid message length. Must be between 10 and 1500 characters.")
+        raise HTTPException(status_code=403, detail="Invalid message length. Must be over 10 characters.")
     return {"message": chat_agent.commit_message_generator(message_content.decode())}
+
+
+
+# CMD uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+if __name__ == "__main__":
+    #     http://127.0.0.1:8080/docs
+    port = int(environ.get("PORT", default=8000))
+    import uvicorn
+
+    uvicorn.run(app="main:app", host="0.0.0.0", port=port, reload=True)

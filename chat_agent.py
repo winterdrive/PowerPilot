@@ -54,7 +54,7 @@ def commit_message_generator(git_diff_content: str) -> str:
     completion = client.chat.completions.create(
         model="TheBloke/CodeLlama-7B-Instruct-GGUF/codellama-7b-instruct.Q5_K_M.gguf",
         messages=conversation_history,
-        temperature=1,
+        temperature=0,
     )
 
     return completion.choices[0].message.content

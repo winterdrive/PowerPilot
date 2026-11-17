@@ -3,3 +3,8 @@
 - The model I use is CodeLlama's LLM model.
 - The git commit message generation is just a simple example of how to use the LLM model.
 - More detail can be found in the [Notion Page](https://fluttering-petalite-528.notion.site/20240331-LM-Studio-for-LLM-local-run-87889d8b8c9b44369b820436f707f0c4)
+
+### Python environment
+
+Use Python 3.11 or newer; the dependency set is validated with Python 3.12.
+Install dependencies with `python -m pip install -r requirements.txt`.
